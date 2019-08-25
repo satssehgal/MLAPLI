@@ -20,16 +20,6 @@ import pandas as pd
 class ApprovalsView(viewsets.ModelViewSet):
 	queryset = approvals.objects.all()
 	serializer_class = approvalsSerializers
-
-def myform(request):
-	if request.method=="POST":
-		form = MyForm(request.POST)
-		if form.is_valid():
-			myform = form.save(commit=False)
-		# 	myform.save()
-	else:
-		form = MyForm()
-	#return render(request, 'myform/form.html', {'form': form})
 		
 @api_view(["POST"])
 def approvereject(request):
